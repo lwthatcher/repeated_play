@@ -12,20 +12,30 @@ class RepeatedPlay:
     def run(self, p1, p2):
         sums = [0, 0]
         for i in range(self.trials):
-            results = self.play(p1.action(), p2.action())
+            actions, results = self.play(p1, p2)
+            print(actions)
 
             # notify players of results
-            p1.results(results)
-            p2.results(results)
+            p1.update(self.relative_play(actions, 'p1'))
+            p2.update(self.relative_play(actions, 'p2'))
 
             # update totals
             sums[0] += results[0]
             sums[1] += results[1]
 
         print("totals: ", str(sums))
+        return sums
 
-    def play(self, a1, a2):
-        return self.payoff_matrix[self.actions(a1, a2)]
+    def play(self, p1, p2):
+        actions = self.actions(p1.action(), p2.action())
+        results = self.payoff_matrix[actions]
+        return actions, results
+
+    def relative_play(self, actions, player):
+        if player == 'p1':
+            return actions
+        else:
+            return actions[::-1]
 
     @staticmethod
     def actions(a1, a2):
@@ -41,6 +51,8 @@ def get_agent(name):
         return Agent()
     elif name == "AD":
         return AlwaysDefect()
+    elif name == "TFT":
+        return TitForTat()
 
 
 # Basic, always cooperate agent
@@ -52,7 +64,7 @@ class Agent:
     def action(self):
         return "C"
 
-    def results(self, results):
+    def update(self, results):
         self.previous = results
 
 
@@ -61,6 +73,16 @@ class AlwaysDefect(Agent):
 
     def action(self):
         return "D"
+
+
+# Tit-for-Tat Agent
+class TitForTat(Agent):
+
+    def action(self):
+        if self.previous is None:
+            return "C"
+        else:
+            return self.previous[1]  # return whatever the other played last
 
 
 parser = argparse.ArgumentParser()
