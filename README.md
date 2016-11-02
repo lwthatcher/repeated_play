@@ -17,6 +17,7 @@ You should also gain practice writing technical documents.  Check out the gradin
 
 ##  Description:
 You will conduct a tournament that tests how different strategies perform in repeated-play prisoner's dilemma game.  You will create your own strategy, and play against the following agents:
+
 1. An agent who employs the one-shot equilibrium solution (always defect)
 2. An agent who chooses randomly
 3. An agent who always cooperates with you (and never confesses)
