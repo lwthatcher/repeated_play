@@ -18,10 +18,10 @@ You should also gain practice writing technical documents.  Check out the gradin
 ##  Description:
 You will conduct a tournament that tests how different strategies perform in repeated-play prisoner's dilemma game.  You will create your own strategy, and play against the following agents:
 
-- [ ] **1.** An agent who employs the one-shot equilibrium solution (always defect)
+- [x] **1.** An agent who employs the one-shot equilibrium solution (always defect)
 - [ ] **2.** An agent who chooses randomly
-- [ ] **3.** An agent who always cooperates with you (and never confesses)
-- [ ] **4.** An agent who employs the tit-for-tat strategy (reviewed below), and
+- [x] **3.** An agent who always cooperates with you (and never confesses)
+- [x] **4.** An agent who employs the tit-for-tat strategy (reviewed below), and
 - [ ] **5.** An agent who employs the tit-for-two-tats strategy (also reviewed below).
 - [ ] **6.** An agent who uses the Pavlov strategy (reviewed below).
 - [ ] **7.** An agent who uses the Win-Stay/Lose-Shift strategy (reviewed below).
