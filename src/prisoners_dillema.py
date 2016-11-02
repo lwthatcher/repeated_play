@@ -1,4 +1,5 @@
 import argparse
+import random
 
 
 class RepeatedPlay:
@@ -53,9 +54,11 @@ def get_agent(name):
         return AlwaysDefect()
     elif name == "TFT":
         return TitForTat()
+    elif name == "RAND":
+        return RandomChoice()
 
 
-# Basic, always cooperate agent
+# Always Cooperate Agent
 class Agent:
 
     def __init__(self):
@@ -83,6 +86,13 @@ class TitForTat(Agent):
             return "C"
         else:
             return self.previous[1]  # return whatever the other played last
+
+
+# Random-Choice Agent
+class RandomChoice(Agent):
+
+    def action(self):
+        return random.choice(['C', 'D'])
 
 
 parser = argparse.ArgumentParser()
