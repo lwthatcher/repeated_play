@@ -1,3 +1,5 @@
+import argparse
+
 
 class RepeatedPlay:
     payoff_matrix = {("C", "C"): (3, 3), ("C", "D"): (1, 5),
@@ -59,3 +61,15 @@ class AlwaysDefect(Agent):
 
     def action(self):
         return "D"
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument('p1', help='the agent type for player 1')
+parser.add_argument('p2', help='the agent type for player 2')
+parser.add_argument('trials', type=int, nargs='?', default=100, help='the number of repeat trials to run')
+args = parser.parse_args()
+
+p1 = get_agent(args.p1)
+p2 = get_agent(args.p2)
+game = RepeatedPlay(args.trials)
+game.run(p1, p2)
