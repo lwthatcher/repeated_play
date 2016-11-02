@@ -56,6 +56,8 @@ def get_agent(name):
         return TitForTat()
     elif name == "RAND":
         return RandomChoice()
+    elif name == "PAV" or name == "PAVLOV":
+        return Pavlov()
 
 
 # Always Cooperate Agent
@@ -93,6 +95,16 @@ class RandomChoice(Agent):
 
     def action(self):
         return random.choice(['C', 'D'])
+
+
+# Pavlov Agent
+class Pavlov(Agent):
+
+    def action(self):
+        if self.previous is not None and self.previous[0] != self.previous[1]:
+            return "D"
+        else:
+            return "C"
 
 
 parser = argparse.ArgumentParser()
