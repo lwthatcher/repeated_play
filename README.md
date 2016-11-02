@@ -18,14 +18,14 @@ You should also gain practice writing technical documents.  Check out the gradin
 ##  Description:
 You will conduct a tournament that tests how different strategies perform in repeated-play prisoner's dilemma game.  You will create your own strategy, and play against the following agents:
 
-1. An agent who employs the one-shot equilibrium solution (always defect)
-2. An agent who chooses randomly
-3. An agent who always cooperates with you (and never confesses)
-4. An agent who employs the tit-for-tat strategy (reviewed below), and
-5. An agent who employs the tit-for-two-tats strategy (also reviewed below).
-6. An agent who uses the Pavlov strategy (reviewed below).
-7. An agent who uses the Win-Stay/Lose-Shift strategy (reviewed below).
-8. An agent who uses the Never Forgive strategy (reviewed below).
+- [ ] **1.** An agent who employs the one-shot equilibrium solution (always defect)
+- [ ] **2.** An agent who chooses randomly
+- [ ] **3.** An agent who always cooperates with you (and never confesses)
+- [ ] **4.** An agent who employs the tit-for-tat strategy (reviewed below), and
+- [ ] **5.** An agent who employs the tit-for-two-tats strategy (also reviewed below).
+- [ ] **6.** An agent who uses the Pavlov strategy (reviewed below).
+- [ ] **7.** An agent who uses the Win-Stay/Lose-Shift strategy (reviewed below).
+- [ ] **8.** An agent who uses the Never Forgive strategy (reviewed below).
 
 You should try out how well each strategy works when there are 5 trials, 100 trials, and 200 trials.  You should also play a variant where, after each interaction, you flip a biased coin to decide if you continue to another round; the coin turns up heads p percent of the time, and whenever the coin turns up heads you continue.  Conduct the experiment for p = 0.75, 0.99, and 0.9. Each agent will compete against all other agents, and the total scores will be recorded.  You should use the prisoner's dilemma payoff matrix in ordinal form with 5 the most preferred outcome and 1 the least preferred.
 
