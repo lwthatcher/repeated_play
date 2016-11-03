@@ -22,7 +22,7 @@ You will conduct a tournament that tests how different strategies perform in rep
 - [x] **2.** An agent who chooses randomly
 - [x] **3.** An agent who always cooperates with you (and never confesses)
 - [x] **4.** An agent who employs the tit-for-tat strategy (reviewed below), and
-- [ ] **5.** An agent who employs the tit-for-two-tats strategy (also reviewed below).
+- [x] **5.** An agent who employs the tit-for-two-tats strategy (also reviewed below).
 - [x] **6.** An agent who uses the Pavlov strategy (reviewed below).
 - [ ] **7.** An agent who uses the Win-Stay/Lose-Shift strategy (reviewed below).
 - [ ] **8.** An agent who uses the Never Forgive strategy (reviewed below).

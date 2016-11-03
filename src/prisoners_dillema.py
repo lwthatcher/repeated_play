@@ -32,7 +32,8 @@ class RepeatedPlay:
         results = self.payoff_matrix[actions]
         return actions, results
 
-    def relative_play(self, actions, player):
+    @staticmethod
+    def relative_play(actions, player):
         if player == 'p1':
             return actions
         else:
@@ -54,6 +55,8 @@ def get_agent(name):
         return AlwaysDefect()
     elif name == "TFT":
         return TitForTat()
+    elif name == "TF2T":
+        return TitForTwoTat()
     elif name == "RAND":
         return RandomChoice()
     elif name == "PAV" or name == "PAVLOV":
@@ -64,6 +67,8 @@ def get_agent(name):
 class Agent:
 
     def __init__(self):
+        # the previous play is a tuple: (M, Y)
+        # where M is my previous move, and Y is the other player's previous move
         self.previous = None
 
     def action(self):
@@ -87,7 +92,29 @@ class TitForTat(Agent):
         if self.previous is None:
             return "C"
         else:
-            return self.previous[1]  # return whatever the other played last
+            # return whatever the other played last
+            return self.previous[1]
+
+
+# Tit-for-Two-Tats Agent
+class TitForTwoTat:
+
+    def __init__(self):
+        # Stores the last two turns, with previous[0] being the most recent turn
+        self.previous = [None, None]
+
+    def action(self):
+        # Always Cooperate for the first two moves
+        if self.previous[1] is None:
+            return "C"
+        elif self.previous[0][1] == "D" and self.previous[1][1] == "D":
+            return "D"
+        else:
+            return "C"
+
+    def update(self, results):
+        self.previous[1] = self.previous[0]
+        self.previous[0] = results
 
 
 # Random-Choice Agent
