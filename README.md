@@ -27,7 +27,7 @@ You will conduct a tournament that tests how different strategies perform in rep
 - [ ] **7.** An agent who uses the Win-Stay/Lose-Shift strategy (reviewed below).
 - [ ] **8.** An agent who uses the Never Forgive strategy (reviewed below).
 
-You should try out how well each strategy works when there are 5 trials, 100 trials, and 200 trials.  You should also play a variant where, after each interaction, you flip a biased coin to decide if you continue to another round; the coin turns up heads p percent of the time, and whenever the coin turns up heads you continue.  Conduct the experiment for p = 0.75, 0.99, and 0.9. Each agent will compete against all other agents, and the total scores will be recorded.  You should use the prisoner's dilemma payoff matrix in ordinal form with 5 the most preferred outcome and 1 the least preferred.
+You should try out how well each strategy works when there are 5 trials, 100 trials, and 200 trials.  You should also play a variant where, after each interaction, you flip a biased coin to decide if you continue to another round; the coin turns up heads p percent of the time, and whenever the coin turns up heads you continue.  Conduct the experiment for p = 0.75, 0.99, and 0.9. *Each agent will compete against all other agents, and the total scores will be recorded.*  You should use the prisoner's dilemma payoff matrix in ordinal form with 5 the most preferred outcome and 1 the least preferred.
 
 | P1/P2           | Cooperate 2 | Defect 2 |
 | --------------- | ----------- | -------- |
