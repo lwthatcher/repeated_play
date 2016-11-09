@@ -75,6 +75,7 @@ class Agent:
         return "C"
 
     def update(self, results):
+        # results should be of the format: (M, Y) [see above]
         self.previous = results
 
 
@@ -134,13 +135,39 @@ class Pavlov(Agent):
             return "C"
 
 
-parser = argparse.ArgumentParser()
-parser.add_argument('p1', help='the agent type for player 1')
-parser.add_argument('p2', help='the agent type for player 2')
-parser.add_argument('trials', type=int, nargs='?', default=100, help='the number of repeat trials to run')
-args = parser.parse_args()
+class WSLS(Agent):
 
-p1 = get_agent(args.p1)
-p2 = get_agent(args.p2)
-game = RepeatedPlay(args.trials)
-game.run(p1, p2)
+    def __init__(self):
+        super().__init__()
+        self.choice = "C"
+
+    def action(self):
+        if self.won_previous:
+            return self.choice
+        else:
+            new_choice = self.change()
+            return new_choice
+
+    def change(self):
+        if self.choice == "C":
+            self.choice = "D"
+        else:
+            self.choice = "C"
+        return self.choice
+
+    @property
+    def won_previous(self):
+        return self.previous[1] == "C"
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('p1', help='the agent type for player 1')
+    parser.add_argument('p2', help='the agent type for player 2')
+    parser.add_argument('trials', type=int, nargs='?', default=100, help='the number of repeat trials to run')
+    args = parser.parse_args()
+
+    player_1 = get_agent(args.p1)
+    player_2 = get_agent(args.p2)
+    game = RepeatedPlay(args.trials)
+    game.run(player_1, player_2)
