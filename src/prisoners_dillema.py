@@ -61,6 +61,10 @@ def get_agent(name):
         return RandomChoice()
     elif name == "PAV" or name == "PAVLOV":
         return Pavlov()
+    elif name == "WSLS":
+        return WSLS()
+    elif name == "NEVER-FORGIVE" or name == "NF" or name == "NEVERFORGIVE" or name == "NEVER_FORGIVE":
+        return NeverForgive()
 
 
 # Always Cooperate Agent
