@@ -2,6 +2,8 @@ import argparse
 import random
 
 
+AGENTS = ["AC", "AD", "TFT", "TF2T", "RANDOM", "PAVLOV", "WSLS", "NF", "DCDC"]
+
 class RepeatedPlay:
     payoff_matrix = {("C", "C"): (3, 3), ("C", "D"): (1, 5),
                      ("D", "C"): (5, 1), ("D", "D"): (2, 2)}
@@ -67,7 +69,7 @@ def get_agent(name):
         return TitForTat()
     elif name == "TF2T":
         return TitForTwoTat()
-    elif name == "RAND":
+    elif name == "RAND" or name == "RANDOM":
         return RandomChoice()
     elif name == "PAV" or name == "PAVLOV":
         return Pavlov()
@@ -75,6 +77,10 @@ def get_agent(name):
         return WSLS()
     elif name == "NEVER-FORGIVE" or name == "NF" or name == "NEVERFORGIVE" or name == "NEVER_FORGIVE":
         return NeverForgive()
+    elif name == "CDCD":
+        return CDCD()
+    elif name == "DCDC":
+        return DCDC()
 
 
 # Always Cooperate Agent
@@ -187,6 +193,28 @@ class NeverForgive(Agent):
             return "D"
         elif self.previous is not None and self.previous[1] == "D":
             self.crossed = True
+            return "D"
+        else:
+            return "C"
+
+
+class CDCD(Agent):
+
+    def action(self):
+        if self.previous is None:
+            return "C"
+        elif self.previous[0] == "C":
+            return "D"
+        else:
+            return "C"
+
+
+class DCDC(Agent):
+
+    def action(self):
+        if self.previous is None:
+            return "D"
+        elif self.previous[0] == "C":
             return "D"
         else:
             return "C"

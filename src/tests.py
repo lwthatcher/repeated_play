@@ -1,5 +1,5 @@
 import unittest
-from prisoners_dillema import TitForTat, TitForTwoTat, Pavlov, WSLS, NeverForgive
+from prisoners_dillema import TitForTat, TitForTwoTat, Pavlov, WSLS, NeverForgive, CDCD, DCDC
 
 
 class MyTestCase(unittest.TestCase):
@@ -57,6 +57,20 @@ class MyTestCase(unittest.TestCase):
         p1 = ['C', 'C', 'C', 'D', 'C', 'C', 'D', 'C']
         me = ['C', 'C', 'C', 'C', 'D', 'D', 'D', 'D']
         self._played_expected(nf, zip(me, p1))
+
+    def test_CDCD(self):
+        print("CDCD Agent")
+        cd = CDCD()
+        p1 = ['C', 'C', 'C', 'D', 'C', 'C', 'D', 'C']
+        me = ['C', 'D', 'C', 'D', 'C', 'D', 'C', 'D']
+        self._played_expected(cd, zip(me, p1))
+
+    def test_DCDC(self):
+        print("DCDC Agent")
+        cd = DCDC()
+        p1 = ['C', 'D', 'C', 'C', 'D', 'C', 'C', 'D', 'C']
+        me = ['D', 'C', 'D', 'C', 'D', 'C', 'D', 'C', 'D']
+        self._played_expected(cd, zip(me, p1))
 
 if __name__ == '__main__':
     unittest.main()
