@@ -12,6 +12,7 @@ class RepeatedPlay:
 
     def run(self, p1, p2):
         sums = [0, 0]
+        trials = 0
         for i in range(self.trials):
             actions, results = self.play(p1, p2)
             print(actions)
@@ -24,13 +25,22 @@ class RepeatedPlay:
             sums[0] += results[0]
             sums[1] += results[1]
 
+            # biased coin flip for continuing
+            trials += 1
+            if not self.should_continue():
+                break
+
         print("totals: ", str(sums))
+        print("trials: ", trials)
         return sums
 
     def play(self, p1, p2):
         actions = self.actions(p1.action(), p2.action())
         results = self.payoff_matrix[actions]
         return actions, results
+
+    def should_continue(self):
+        return random.random() < self.p
 
     @staticmethod
     def relative_play(actions, player):
@@ -187,9 +197,10 @@ if __name__ == '__main__':
     parser.add_argument('p1', help='the agent type for player 1')
     parser.add_argument('p2', help='the agent type for player 2')
     parser.add_argument('trials', type=int, nargs='?', default=100, help='the number of repeat trials to run')
+    parser.add_argument('--p', type=float, default=1.0, help='the probability of continuing to another round')
     args = parser.parse_args()
 
     player_1 = get_agent(args.p1)
     player_2 = get_agent(args.p2)
-    game = RepeatedPlay(args.trials)
+    game = RepeatedPlay(args.trials, args.p)
     game.run(player_1, player_2)
