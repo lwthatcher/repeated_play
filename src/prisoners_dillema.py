@@ -2,7 +2,7 @@ import argparse
 import random
 
 
-AGENTS = ["AC", "AD", "TFT", "TF2T", "RANDOM", "PAVLOV", "WSLS", "NF", "DCDC"]
+
 
 
 class RepeatedPlay:
