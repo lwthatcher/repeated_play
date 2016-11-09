@@ -157,6 +157,8 @@ class WSLS(Agent):
 
     @property
     def won_previous(self):
+        if self.previous is None:
+            return True
         return self.previous[1] == "C"
 
 
