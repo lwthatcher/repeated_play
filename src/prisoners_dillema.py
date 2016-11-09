@@ -162,6 +162,22 @@ class WSLS(Agent):
         return self.previous[1] == "C"
 
 
+class NeverForgive(Agent):
+
+    def __init__(self):
+        super().__init__()
+        self.crossed = False
+
+    def action(self):
+        if self.crossed:
+            return "D"
+        elif self.previous is not None and self.previous[1] == "D":
+            self.crossed = True
+            return "D"
+        else:
+            return "C"
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('p1', help='the agent type for player 1')

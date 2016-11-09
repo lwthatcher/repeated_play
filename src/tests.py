@@ -1,5 +1,5 @@
 import unittest
-from prisoners_dillema import TitForTat, TitForTwoTat, Pavlov, WSLS
+from prisoners_dillema import TitForTat, TitForTwoTat, Pavlov, WSLS, NeverForgive
 
 
 class MyTestCase(unittest.TestCase):
@@ -39,17 +39,24 @@ class MyTestCase(unittest.TestCase):
 
     def test_pavlov(self):
         print("Pavlov Agent")
-        tft = Pavlov()
+        pav = Pavlov()
         p1 = ['D', 'D', 'C', 'D', 'D', 'D']
         me = ['C', 'D', 'C', 'C', 'D', 'C']
-        self._played_expected(tft, zip(me, p1))
+        self._played_expected(pav, zip(me, p1))
 
-    def test_wsls(self):
+    def test_WSLS(self):
         print("Win-Stay/Lose-Shift Agent")
-        tft = WSLS()
+        wsls = WSLS()
         p1 = ['D', 'D', 'C', 'C', 'D', 'D']
         me = ['C', 'D', 'C', 'C', 'C', 'D']
-        self._played_expected(tft, zip(me, p1))
+        self._played_expected(wsls, zip(me, p1))
+
+    def test_NeverForgive(self):
+        print("Never Forgive Agent")
+        nf = NeverForgive()
+        p1 = ['C', 'C', 'C', 'D', 'C', 'C', 'D', 'C']
+        me = ['C', 'C', 'C', 'C', 'D', 'D', 'D', 'D']
+        self._played_expected(nf, zip(me, p1))
 
 if __name__ == '__main__':
     unittest.main()
