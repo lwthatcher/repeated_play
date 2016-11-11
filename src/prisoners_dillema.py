@@ -2,9 +2,6 @@ import argparse
 import random
 
 
-
-
-
 class RepeatedPlay:
     payoff_matrix = {("C", "C"): (3, 3), ("C", "D"): (1, 5),
                      ("D", "C"): (5, 1), ("D", "D"): (2, 2)}
@@ -41,7 +38,7 @@ class RepeatedPlay:
         return sums
 
     def play(self, p1, p2):
-        actions = self.actions(p1.action(), p2.action())
+        actions = (p1.action(), p2.action())
         results = self.payoff_matrix[actions]
         return actions, results
 

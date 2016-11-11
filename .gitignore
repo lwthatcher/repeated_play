@@ -6,3 +6,6 @@ __pycache__/
 ## IDEs
 #Pycharm
 .idea/
+
+## Project Stuff
+src/results.csv
