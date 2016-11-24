@@ -14,16 +14,12 @@ CS 670 Lab 1
  - [ ] explanation of why the winner won, and discussing how their strategy performed and why (1 pg)
 
 ## Experiments:
-- [ ] **Number of Trials**
- - [ ] 5 trials
- - [ ] 100 trials
- - [ ] 200 trials
-  
-- [ ] **Gamma Values**
- - [ ] p = 1.0
- - [ ] p = 0.99
- - [ ] p = 0.9
- - [ ] p = 0.75
+|   | 5 trials | 100 trials | 200 trials |
+|---|:--------:|:----------:|:----------:|
+| **p = 1.0**|  |  |  |
+| **p = 0.99**|  |  |  |
+| **p = 0.9**|  |  |  |
+| **p = 0.75**|  |  |  |
   
   > **Note:** do several (maybe 5?) trials for each, record mean/var
   
