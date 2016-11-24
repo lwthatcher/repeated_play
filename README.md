@@ -3,8 +3,8 @@ CS 670 Lab 1
 
 ## TODO:
 - [x] Create custom agent
-- [ ] Experiments
-- [ ] Format data
+- [x] Experiments
+- [x] Format data
 - [ ] Report
 
 ## Report:
