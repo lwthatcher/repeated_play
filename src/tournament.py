@@ -49,7 +49,7 @@ class Tournament:
 
     @property
     def AGENTS(self):
-        return ["AC", "AD", "TFT", "TF2T", "RANDOM", "PAVLOV", "WSLS", "NF", "DCDC"]
+        return ["AC", "AD", "TFT", "TF2T", "RANDOM", "PAVLOV", "WSLS", "NF", "CUSTOM"]
 
     def results_map(self):
         results = {}
@@ -65,5 +65,4 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     tournament = Tournament(args.trials, args.p)
-    # tournament.run()
-    print(tournament.output_file)
+    tournament.run()

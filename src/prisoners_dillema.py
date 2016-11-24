@@ -82,6 +82,8 @@ def get_agent(name):
         return CDCD()
     elif name == "DCDC":
         return DCDC()
+    elif name == "CUST" or name == "CUSTOM":
+        return Custom()
 
 
 # Always Cooperate Agent
@@ -220,6 +222,25 @@ class DCDC(Agent):
         else:
             return "C"
 
+
+class Custom(NeverForgive):
+
+    def action(self):
+        # Trigger Strategy
+        if self.crossed:
+            return "D"
+        # Initially defect
+        elif self.previous is None:
+            return "D"
+        # If other player is playing CDCD, then play DCDC
+        elif self.previous[0] == "D" and self.previous[1] == "C":
+            return "C"
+        elif self.previous[0] == "C" and self.previous[1] == "D":
+            return "D"
+        # Other player not playing CDCD -> trigger
+        else:
+            self.crossed = True
+            return "D"
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

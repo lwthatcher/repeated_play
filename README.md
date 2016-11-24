@@ -2,8 +2,9 @@
 CS 670 Lab 1
 
 ## TODO:
-- [ ] Create custom agent
+- [x] Create custom agent
 - [ ] Experiments
+- [ ] Format data
 - [ ] Report
 
 ## Report:
@@ -23,6 +24,8 @@ CS 670 Lab 1
  - [ ] p = 0.99
  - [ ] p = 0.9
  - [ ] p = 0.75
+  
+  > **Note:** do several (maybe 5?) trials for each, record mean/var
   
 *Each agent will compete against all other agents, and the total scores will be recorded.*
 
