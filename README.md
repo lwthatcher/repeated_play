@@ -18,8 +18,9 @@ CS 670 Lab 1
 |---|:--------:|:----------:|:----------:|
 | **p = 1.0**| :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | **p = 0.99**| :white_large_square: | :white_large_square: | :white_large_square: |
+| **p = 0.95**| :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | **p = 0.9**| :white_large_square: | :white_large_square: | :white_large_square: |
-| **p = 0.75**| :white_large_square: | :white_large_square: | :white_large_square: |
+| **p = 0.75**| :white_check_mark: | :white_check_mark: | :white_check_mark: |
   
   > **Note:** do several (maybe 5?) trials for each, record mean/var
   
