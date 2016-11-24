@@ -17,12 +17,12 @@ CS 670 Lab 1
 |   | 5 trials | 100 trials | 200 trials |
 |---|:--------:|:----------:|:----------:|
 | **p = 1.0**| :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| **p = 0.99**| :white_large_square: | :white_large_square: | :white_large_square: |
+| **p = 0.99**| :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | **p = 0.95**| :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| **p = 0.9**| :white_large_square: | :white_large_square: | :white_large_square: |
+| **p = 0.9**| :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | **p = 0.75**| :white_check_mark: | :white_check_mark: | :white_check_mark: |
   
-  > **Note:** do several (maybe 5?) trials for each, record mean/var
+  > **Note:** for values p < 1, do 100 iterations and average over them.
   
 *Each agent will compete against all other agents, and the total scores will be recorded.*
 
