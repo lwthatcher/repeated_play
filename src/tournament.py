@@ -20,7 +20,7 @@ class Tournament:
                 agent1 = get_agent(a1)
                 agent2 = get_agent(a2)
                 r = self.game.run(agent1, agent2)
-                results[a1][a2] = r
+                results[a1][a2] = r[0]
         self.export(results)
 
     def export(self, results):
